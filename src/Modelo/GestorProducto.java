@@ -60,14 +60,16 @@ public class GestorProducto {
         try{
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistema_ventas", "root", "almendra1994");
             myStmt = myConn.createStatement();  
-            String sql = "SELECT * FROM PRODUCTO WHERE NombreProducto = '" + nombre + "';";
+            String sql = "SELECT COUNT(*) FROM PRODUCTO WHERE NombreProducto = '" + nombre + "';";
             myRs = myStmt.executeQuery(sql);          
-                        
-            int codigo = Integer.parseInt(myRs.getString("idProducto"));
-            double precio = Double.parseDouble(myRs.getString("Precio"));
-            int idCat = Integer.parseInt(myRs.getString("Categoria_idCategoria"));
-            Categoria cat = new Categoria(idCat, "");
-            prod = new Producto(codigo, myRs.getString("NombreProducto"),precio, cat);
+            
+            while(myRs.next()){
+                int codigo = Integer.parseInt(myRs.getString("idProducto"));
+                double precio = Double.parseDouble(myRs.getString("Precio"));
+                int idCat = Integer.parseInt(myRs.getString("Categoria_idCategoria"));
+                Categoria cat = new Categoria(idCat, "");
+                prod = new Producto(codigo, myRs.getString("NombreProducto"),precio, cat);
+            }                 
       
         }
         catch (Exception exc){
