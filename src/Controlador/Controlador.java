@@ -16,8 +16,8 @@ public class Controlador {
         productosTemp = new ArrayList<Producto>();
     }
     
-    public void insertarPersona(String nombre, String ape_pat, String ape_mat){
-        gestorCliente.insertarPersona(nombre,ape_pat,ape_mat);
+    public void insertarPersona(String nombre, String ape_pat, String ape_mat,Integer dni, String email, String password) throws SQLException{
+        gestorCliente.insertarPersona(nombre,ape_pat,ape_mat,dni,email,password);
     }
     
     public ArrayList <Producto> obtenerProductoDeCategoria(Integer categoria) throws SQLException {
