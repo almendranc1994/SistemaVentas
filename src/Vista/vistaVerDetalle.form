@@ -76,6 +76,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xd1;ADIR CARRITO"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonAnadirCarritoMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCancelar">
       <Properties>

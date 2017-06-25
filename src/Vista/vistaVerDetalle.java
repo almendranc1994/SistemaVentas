@@ -45,6 +45,11 @@ public class vistaVerDetalle extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonAnadirCarrito.setText("AÑADIR CARRITO");
+        jButtonAnadirCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAnadirCarritoMouseClicked(evt);
+            }
+        });
 
         jButtonCancelar.setText("VOLVER");
         jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,6 +129,10 @@ public class vistaVerDetalle extends javax.swing.JFrame {
         dispose(); //Destroy the JFrame object
         this.ventanaPadre.setVisible(true);
     }//GEN-LAST:event_jButtonCancelarMouseClicked
+
+    private void jButtonAnadirCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnadirCarritoMouseClicked
+        //new vistaCompra(controlador,nombre,precio,this).setVisible(true);
+    }//GEN-LAST:event_jButtonAnadirCarritoMouseClicked
 
    public void llenarComponentes(){
        jTextFieldNombre.setText(nombre);
