@@ -161,10 +161,10 @@ INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdent
 INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Alejandra','Baigorrea','Alcala','larubiadegamarra@hotmail.com','44444444','12345678');
 
 -- INSERTANDO CATEGORIAS
-INSERT INTO CATEGORIA (Descripcion) VALUES ('CHOMPAS');
-INSERT INTO CATEGORIA (Descripcion) VALUES ('ZAPATOS');
-INSERT INTO CATEGORIA (Descripcion) VALUES ('CASACAS');
-
+INSERT INTO CATEGORIA (Descripcion) VALUES ('CHOMPAS')
+INSERT INTO CATEGORIA (Descripcion) VALUES ('ZAPATOS')
+INSERT INTO CATEGORIA (Descripcion) VALUES ('ABRIGOS')
+INSERT INTO CATEGORIA (Descripcion) VALUES ('CASACAS')
 
 -- INSERTANTO PRODUCTOS
 INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
@@ -177,3 +177,44 @@ INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
 VALUES ('Sweater Temp V1' , 71.10 , 1);
 INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
 VALUES ('Sweater Detalles DDM' ,55.30,1);
+
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Zapatos Daelyn Hill' ,244.30,2);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Zapatos Hombre Dress' ,2330.10,2);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Zapatillas Urban' ,39.90,2);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Sandalias Mujer Kostas35' ,409,2);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Sandalias Mujer Prov-Prima Go' ,99,2);
+
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Blazer Leli' ,259,3);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Blazer Jade Doble' ,167.40,3);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Chaquetón N4CQB510KA' ,259,3);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Chaleco Pelos' ,149,3);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Cárdigan Soda' ,149,3);
+
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Casaca Vent Thermo_R Runner Jkt W' ,359.20,4);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Caftán Zen' ,179,4);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Blazer Boreal8' ,229,4);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Chaleco Nuptse' ,419.30,4);
+INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)
+VALUES ('Cárdigan Soda' ,149,4);
+
+
+
+
+
+
+
+

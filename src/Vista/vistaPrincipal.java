@@ -77,8 +77,18 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonAbrigos.setText("ABRIGOS");
+        jButtonAbrigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAbrigosMouseClicked(evt);
+            }
+        });
 
         jButtonCasacas.setText("CASACAS");
+        jButtonCasacas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCasacasMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,11 +106,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(35, 35, 35)
                 .addComponent(jButtonChompas)
-                .addGap(33, 33, 33)
+                .addGap(36, 36, 36)
                 .addComponent(jButtonZapatos)
-                .addGap(27, 27, 27)
+                .addGap(34, 34, 34)
                 .addComponent(jButtonAbrigos)
                 .addGap(29, 29, 29)
                 .addComponent(jButtonCasacas)
@@ -139,7 +149,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,8 +161,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(jButtonCarritoCompras)
                     .addComponent(jLabel1))
                 .addGap(16, 16, 16)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,6 +204,23 @@ public class vistaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonZapatosMouseClicked
 
+    private void jButtonAbrigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAbrigosMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,3,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonAbrigosMouseClicked
+
+    private void jButtonCasacasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCasacasMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,4,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonCasacasMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
