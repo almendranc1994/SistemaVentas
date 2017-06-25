@@ -55,6 +55,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonZapatos.setText("ZAPATOS");
+        jButtonZapatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonZapatosMouseClicked(evt);
+            }
+        });
 
         jButtonAbrigos.setText("ABRIGOS");
 
@@ -120,6 +125,15 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private void jButtonChompasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChompasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonChompasActionPerformed
+
+    private void jButtonZapatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZapatosMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,2,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonZapatosMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

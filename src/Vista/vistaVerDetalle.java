@@ -17,16 +17,13 @@ public class vistaVerDetalle extends javax.swing.JFrame {
     double precio;
     javax.swing.JFrame ventanaPadre;
     
-    public vistaVerDetalle(Controlador C, String nombe, double precio, javax.swing.JFrame ventanaPadre) {
-        this.controlador = controlador;
+    public vistaVerDetalle(Controlador C, String nombre, double precio, javax.swing.JFrame ventanaPadre) {
+        this.controlador = C;
         this.ventanaPadre = ventanaPadre;
         this.nombre = nombre;
         this.precio = precio;
         initComponents();
-    }
-
-    vistaVerDetalle(Controlador controlador, String nombre, Double precio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        llenarComponentes();
     }
 
     /**
@@ -49,7 +46,17 @@ public class vistaVerDetalle extends javax.swing.JFrame {
 
         jButtonAnadirCarrito.setText("AÑADIR CARRITO");
 
-        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.setText("VOLVER");
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMouseClicked(evt);
+            }
+        });
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nombre:");
 
@@ -79,9 +86,9 @@ public class vistaVerDetalle extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldNombre)
-                            .addComponent(jTextFieldPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jTextFieldPrecio))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +115,20 @@ public class vistaVerDetalle extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPrecioActionPerformed
 
-   
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void jButtonCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMouseClicked
+        setVisible(false); //you can't see me!
+        dispose(); //Destroy the JFrame object
+        this.ventanaPadre.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarMouseClicked
+
+   public void llenarComponentes(){
+       jTextFieldNombre.setText(nombre);
+       jTextFieldPrecio.setText(Double.toString(precio));
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAnadirCarrito;

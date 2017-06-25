@@ -116,7 +116,7 @@ public class vistaCategoria extends javax.swing.JFrame {
         String nombre = table.getValueAt(index, 0).toString();
         Double precio = Double.parseDouble(table.getValueAt(index,1).toString());
         
-        //new vistaVerDetalle(controlador,nombre,precio).setVisible(true);
+        new vistaVerDetalle(controlador,nombre,precio,this).setVisible(true);
         
     }//GEN-LAST:event_jButtonVerDetalleMouseClicked
 
