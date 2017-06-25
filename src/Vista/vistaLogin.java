@@ -115,7 +115,8 @@ public class vistaLogin extends javax.swing.JFrame {
             if(datosCliente != null){
                 JOptionPane.showMessageDialog(null, "Bienvenid@ " + datosCliente.getNombre() + " " + datosCliente.getApellidoPaterno() + " " + datosCliente.getApellidoMaterno());
                 this.setVisible(false);
-                new vistaPrincipal(datosCliente,controlador,this).setVisible(true);
+                this.controlador.setClienteActual(datosCliente);
+                new vistaPrincipal(controlador,this).setVisible(true);
                 jTextField1.setText("");
                 jTextField2.setText("");
             }else{

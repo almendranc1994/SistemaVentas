@@ -19,22 +19,15 @@ public class vistaPrincipal extends javax.swing.JFrame {
     
     Controlador controlador;
     javax.swing.JFrame ventanaPadre;
-    Cliente cliente;
     
     public vistaPrincipal(Controlador C, javax.swing.JFrame ventanaPadre) {
         this.ventanaPadre = ventanaPadre;
         this.controlador = C;
         initComponents();
-    }
-    
-    public vistaPrincipal(Cliente cliente,Controlador C, javax.swing.JFrame ventanaPadre) {
-        this.cliente = cliente;
-        this.ventanaPadre = ventanaPadre;
-        this.controlador = C;
-        initComponents();
+        Cliente cliente = this.controlador.getClienteActual();
         jLabel1.setText(cliente.getNombre() + " " + cliente.getApellidoPaterno() + " " + cliente.getApellidoMaterno());
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

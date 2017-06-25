@@ -161,10 +161,10 @@ INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdent
 INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Alejandra','Baigorrea','Alcala','larubiadegamarra@hotmail.com','44444444','12345678');
 
 -- INSERTANDO CATEGORIAS
-INSERT INTO CATEGORIA (Descripcion) VALUES ('CHOMPAS')
-INSERT INTO CATEGORIA (Descripcion) VALUES ('ZAPATOS')
-INSERT INTO CATEGORIA (Descripcion) VALUES ('ABRIGOS')
-INSERT INTO CATEGORIA (Descripcion) VALUES ('CASACAS')
+INSERT INTO CATEGORIA (Descripcion) VALUES ('CHOMPAS');
+INSERT INTO CATEGORIA (Descripcion) VALUES ('ZAPATOS');
+INSERT INTO CATEGORIA (Descripcion) VALUES ('ABRIGOS');
+INSERT INTO CATEGORIA (Descripcion) VALUES ('CASACAS');
 
 -- INSERTANTO PRODUCTOS
 INSERT INTO PRODUCTO (NombreProducto, Precio, Categoria_idCategoria)

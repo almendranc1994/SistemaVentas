@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Controlador {
+    private Cliente clienteActual;
     GestorCliente gestorCliente;
     GestorProducto gestorProducto;
  
@@ -26,5 +27,21 @@ public class Controlador {
         return gestorCliente.obtenerCliente(usuario, password);
         
     }
+
+    /**
+     * @return the clienteActual
+     */
+    public Cliente getClienteActual() {
+        return clienteActual;
+    }
+
+    /**
+     * @param clienteActual the clienteActual to set
+     */
+    public void setClienteActual(Cliente clienteActual) {
+        this.clienteActual = clienteActual;
+    }
+    
+    
     
 }
