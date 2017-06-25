@@ -12,7 +12,7 @@ public class Sistema_Venta {
     public static void main(String[] args) {
         Controlador C = new Controlador();
         
-        new vistaPrincipal(C).setVisible(true);
+        new vistaLogin(C).setVisible(true);
         
     }
     

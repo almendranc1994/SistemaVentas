@@ -21,4 +21,10 @@ public class Controlador {
         return gestorProducto.obtenerProductoDeCategoria(categoria);
     }
     
+    public Cliente obtenerDatosCliente(String usuario,String password) throws SQLException{
+        
+        return gestorCliente.obtenerCliente(usuario, password);
+        
+    }
+    
 }

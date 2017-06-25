@@ -8,14 +8,20 @@ public class Cliente {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String email;    
+    private String password;
 
-    public Cliente(int idCliente, int documentoIdentidad, String nombre, String apellidoPaterno, String apellidoMaterno, String email) {
+    public Cliente(){
+    
+    }
+    
+    public Cliente(int idCliente, int documentoIdentidad, String nombre, String apellidoPaterno, String apellidoMaterno, String email,String password) {
         this.idCliente = idCliente;
         this.documentoIdentidad = documentoIdentidad;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.email = email;
+        this.password = password;
     }
             
     public int getIdCliente() {
@@ -65,5 +71,19 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }    
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }
