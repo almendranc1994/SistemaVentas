@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `sistema_ventas`.`Cliente` (
   `ApellidoMaterno` VARCHAR(45) NULL,
   `Email` VARCHAR(45) NULL,
   `DocumentoIdentidad` INT(8) NULL,
+    `Password` VARCHAR(25) NULL,
   PRIMARY KEY (`idCliente`))
 ENGINE = InnoDB;
 
@@ -151,7 +152,13 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+-- INSERTANDO CLIENTES
 
+INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Almendra','Nunez','Calderon','almendra.nunezc@pucp.pe','74134794','12345678');
+INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Brunella','Horna','Costa','babycandy@hotmail.com','11111111','12345678');
+INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Tilsa','Lozano','Sibila','soltera@hotmail.com','22222222','12345678');
+INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Olinda','Castaneda','Castaneda','lapartidora@hotmail.com','33333333','12345678');
+INSERT INTO CLIENTE (Nombre,ApellidoPaterno,ApellidoMaterno,Email,DocumentoIdentidad,Password) VALUES ('Alejandra','Baigorrea','Alcala','larubiadegamarra@hotmail.com','44444444','12345678');
 
 -- INSERTANDO CATEGORIAS
 INSERT INTO CATEGORIA (Descripcion) VALUES ('CHOMPAS');
