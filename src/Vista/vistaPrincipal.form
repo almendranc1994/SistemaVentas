@@ -101,11 +101,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ABRIGOS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonAbrigosMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonCasacas">
           <Properties>
             <Property name="text" type="java.lang.String" value="CASACAS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonCasacasMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

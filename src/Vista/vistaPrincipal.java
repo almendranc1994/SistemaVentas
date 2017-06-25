@@ -62,8 +62,18 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonAbrigos.setText("ABRIGOS");
+        jButtonAbrigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonAbrigosMouseClicked(evt);
+            }
+        });
 
         jButtonCasacas.setText("CASACAS");
+        jButtonCasacas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonCasacasMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -134,6 +144,24 @@ public class vistaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonZapatosMouseClicked
+
+    private void jButtonAbrigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAbrigosMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,3,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonAbrigosMouseClicked
+
+    private void jButtonCasacasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCasacasMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,4,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonCasacasMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
