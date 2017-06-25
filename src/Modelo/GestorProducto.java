@@ -53,22 +53,24 @@ public class GestorProducto {
         return productos;       
     }
     
-    public Producto obtenerProductoDeNombre(String nombre) throws SQLException {        
+    public Producto obtenerProductoDeNombre(String nombre) throws SQLException { 
+        System.out.println(nombre);
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;
         try{
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistema_ventas", "root", "almendra1994");
             myStmt = myConn.createStatement();  
-            String sql = "SELECT COUNT(*) FROM PRODUCTO WHERE NombreProducto = '" + nombre + "';";
+            String sql = "SELECT PRODUCTO.idProducto, PRODUCTO.Precio ,PRODUCTO.NombreProducto,PRODUCTO.Categoria_idCategoria , CATEGORIA.Descripcion FROM PRODUCTO, CATEGORIA  WHERE PRODUCTO.Categoria_idCategoria=CATEGORIA.idCategoria AND PRODUCTO.NombreProducto = '" + nombre + "'";
             myRs = myStmt.executeQuery(sql);          
             
             while(myRs.next()){
                 int codigo = Integer.parseInt(myRs.getString("idProducto"));
                 double precio = Double.parseDouble(myRs.getString("Precio"));
                 int idCat = Integer.parseInt(myRs.getString("Categoria_idCategoria"));
-                Categoria cat = new Categoria(idCat, "");
+                Categoria cat = new Categoria(idCat, myRs.getString("Descripcion"));
                 prod = new Producto(codigo, myRs.getString("NombreProducto"),precio, cat);
+                return prod;
             }                 
       
         }

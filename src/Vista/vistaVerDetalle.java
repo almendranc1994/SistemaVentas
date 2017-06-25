@@ -73,8 +73,11 @@ public class vistaVerDetalle extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
+        jTextFieldNombre.setEnabled(false);
+
         jLabel2.setText("Precio:");
 
+        jTextFieldPrecio.setEnabled(false);
         jTextFieldPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecioActionPerformed(evt);
