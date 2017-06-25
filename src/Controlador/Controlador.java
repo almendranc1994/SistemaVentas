@@ -8,10 +8,12 @@ public class Controlador {
     private Cliente clienteActual;
     GestorCliente gestorCliente;
     GestorProducto gestorProducto;
+    ArrayList<Producto> productosTemp;
  
     public Controlador() {
         gestorCliente = new GestorCliente();
         gestorProducto = new GestorProducto();
+        productosTemp = new ArrayList<Producto>();
     }
     
     public void insertarPersona(String nombre, String ape_pat, String ape_mat){
@@ -42,6 +44,9 @@ public class Controlador {
         this.clienteActual = clienteActual;
     }
     
-    
+    public void agregarCompraTemp(String nombre) throws SQLException{
+        Producto prod = gestorProducto.obtenerProductoDeNombre(nombre);
+        this.productosTemp.add(prod);
+    }
     
 }

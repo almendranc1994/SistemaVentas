@@ -13,6 +13,13 @@ public class Producto {
         this.precioVenta = precioVenta;
         this.categoria = categoria;
     }    
+
+    Producto() {
+        this.idProducto = 0;
+        this.nombreProducto = "";
+        this.precioVenta = 0;
+        
+    }
     
     public int getIdProducto() {
         return idProducto;

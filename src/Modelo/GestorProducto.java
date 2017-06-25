@@ -11,10 +11,12 @@ import java.util.ArrayList;
 public class GestorProducto {
     private ArrayList <Producto> productos;
     ConnectDB conexion;
+    private Producto prod;
 
     public GestorProducto() {
         this.productos = new ArrayList<Producto>();
         this.conexion = new ConnectDB();
+        this.prod = new Producto();
     }
     
     public ArrayList <Producto> obtenerProductoDeCategoria(Integer categoria) throws SQLException {
@@ -49,6 +51,37 @@ public class GestorProducto {
                 myConn.close();
         }
         return productos;       
+    }
+    
+    public Producto obtenerProductoDeNombre(String nombre) throws SQLException {        
+        Connection myConn = null;
+        Statement myStmt = null;
+        ResultSet myRs = null;
+        try{
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sistema_ventas", "root", "almendra1994");
+            myStmt = myConn.createStatement();  
+            String sql = "SELECT * FROM PRODUCTO WHERE NombreProducto = '" + nombre + "';";
+            myRs = myStmt.executeQuery(sql);          
+                        
+            int codigo = Integer.parseInt(myRs.getString("idProducto"));
+            double precio = Double.parseDouble(myRs.getString("Precio"));
+            int idCat = Integer.parseInt(myRs.getString("Categoria_idCategoria"));
+            Categoria cat = new Categoria(idCat, "");
+            prod = new Producto(codigo, myRs.getString("NombreProducto"),precio, cat);
+      
+        }
+        catch (Exception exc){
+            exc.printStackTrace();			
+        }	
+        finally{
+            if(myRs != null)
+                myRs.close();
+            if(myStmt != null)
+                myStmt.close();
+            if(myConn != null)
+                myConn.close();
+        }
+        return prod;      
     }
     
 }

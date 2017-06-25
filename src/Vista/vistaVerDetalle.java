@@ -6,6 +6,9 @@
 package Vista;
 
 import Controlador.Controlador;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +26,7 @@ public class vistaVerDetalle extends javax.swing.JFrame {
         this.nombre = nombre;
         this.precio = precio;
         initComponents();
-        llenarComponentes();
+        llenarComponentesIniciales();
     }
 
     /**
@@ -48,6 +51,11 @@ public class vistaVerDetalle extends javax.swing.JFrame {
         jButtonAnadirCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonAnadirCarritoMouseClicked(evt);
+            }
+        });
+        jButtonAnadirCarrito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnadirCarritoActionPerformed(evt);
             }
         });
 
@@ -133,11 +141,22 @@ public class vistaVerDetalle extends javax.swing.JFrame {
 
 
     private void jButtonAnadirCarritoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAnadirCarritoMouseClicked
-        //new vistaCompra(controlador,nombre,precio,this).setVisible(true);
+        try {
+            this.controlador.agregarCompraTemp(jTextFieldNombre.getText());
+            setVisible(false); //you can't see me!
+            dispose(); //Destroy the JFrame object
+            this.ventanaPadre.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaVerDetalle.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonAnadirCarritoMouseClicked
 
+    private void jButtonAnadirCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnadirCarritoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAnadirCarritoActionPerformed
 
-   public void llenarComponentes(){
+
+   public void llenarComponentesIniciales(){
        jTextFieldNombre.setText(nombre);
        jTextFieldPrecio.setText(Double.toString(precio));
    }
