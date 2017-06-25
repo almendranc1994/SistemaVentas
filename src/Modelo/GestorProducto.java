@@ -18,6 +18,7 @@ public class GestorProducto {
     }
     
     public ArrayList <Producto> obtenerProductoDeCategoria(Integer categoria) throws SQLException {
+        productos.clear();
         Connection myConn = null;
         Statement myStmt = null;
         ResultSet myRs = null;

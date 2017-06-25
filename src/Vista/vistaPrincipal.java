@@ -49,8 +49,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
         jButtonZapatos = new javax.swing.JButton();
         jButtonAbrigos = new javax.swing.JButton();
         jButtonCasacas = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
+        jButtonCarritoCompras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,6 +70,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonZapatos.setText("ZAPATOS");
+        jButtonZapatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonZapatosMouseClicked(evt);
+            }
+        });
 
         jButtonAbrigos.setText("ABRIGOS");
 
@@ -102,17 +107,17 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalir.setText("Salir");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSalirActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Carrito de Compras");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCarritoCompras.setText("Carrito de Compras");
+        jButtonCarritoCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonCarritoComprasActionPerformed(evt);
             }
         });
 
@@ -128,9 +133,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(jButtonCarritoCompras)
                         .addGap(41, 41, 41)
-                        .addComponent(jButton1))
+                        .addComponent(jButtonSalir))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -141,8 +146,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(jButtonSalir)
+                    .addComponent(jButtonCarritoCompras)
                     .addComponent(jLabel1))
                 .addGap(16, 16, 16)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,24 +171,35 @@ public class vistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonChompasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         dispose();
         this.ventanaPadre.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonCarritoComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCarritoComprasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonCarritoComprasActionPerformed
+
+    private void jButtonZapatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonZapatosMouseClicked
+        this.setVisible(false);
+        try {  
+            new vistaCategoria(controlador,2,this).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(vistaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonZapatosMouseClicked
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAbrigos;
+    private javax.swing.JButton jButtonCarritoCompras;
     private javax.swing.JButton jButtonCasacas;
     private javax.swing.JButton jButtonChompas;
+    private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonZapatos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

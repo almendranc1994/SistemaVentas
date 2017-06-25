@@ -9,7 +9,9 @@ import Controlador.Controlador;
 import Modelo.Producto;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -43,6 +45,7 @@ public class vistaCategoria extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCategoria = new javax.swing.JTable();
         jButtonClose = new javax.swing.JButton();
+        jButtonVerDetalle = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +54,7 @@ public class vistaCategoria extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre Producto", "Precio", "Ver detalle"
+                "Nombre Producto", "Precio"
             }
         ));
         jScrollPane1.setViewportView(jTableCategoria);
@@ -63,27 +66,38 @@ public class vistaCategoria extends javax.swing.JFrame {
             }
         });
 
+        jButtonVerDetalle.setText("VER DETALLE");
+        jButtonVerDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonVerDetalleMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(465, Short.MAX_VALUE)
+                .addGap(140, 140, 140)
+                .addComponent(jButtonVerDetalle)
+                .addGap(179, 179, 179)
                 .addComponent(jButtonClose)
-                .addGap(151, 151, 151))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
+                .addContainerGap(99, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addComponent(jButtonClose)
-                .addGap(40, 40, 40))
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVerDetalle)
+                    .addComponent(jButtonClose))
+                .addGap(62, 62, 62))
         );
 
         pack();
@@ -95,19 +109,35 @@ public class vistaCategoria extends javax.swing.JFrame {
         this.ventanaPadre.setVisible(true);
     }//GEN-LAST:event_jButtonCloseMouseClicked
 
+    private void jButtonVerDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonVerDetalleMouseClicked
+        int index = jTableCategoria.getSelectedRow();
+        TableModel table = jTableCategoria.getModel();
+        
+        String nombre = table.getValueAt(index, 0).toString();
+        Double precio = Double.parseDouble(table.getValueAt(index,1).toString());
+        
+        new vistaVerDetalle(controlador,nombre,precio,this).setVisible(true);
+        
+    }//GEN-LAST:event_jButtonVerDetalleMouseClicked
+
     public void llenarTabla() throws SQLException{
         ArrayList<Producto> prod = controlador.obtenerProductoDeCategoria(categoria);
         DefaultTableModel model = (DefaultTableModel) jTableCategoria.getModel();
         Object rowData[] = new Object[3];
+        
         for(int i=0; i<prod.size(); i++){
             rowData[0] = prod.get(i).getNombreProducto();
             rowData[1] = prod.get(i).getPrecioVenta();
+            
+            //owData[2] = (new JButton("Ver Detalle")).setActionCommand("verDetalle");
             model.addRow(rowData);
+            
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClose;
+    private javax.swing.JButton jButtonVerDetalle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableCategoria;
     // End of variables declaration//GEN-END:variables
