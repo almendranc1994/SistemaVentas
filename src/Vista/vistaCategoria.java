@@ -48,10 +48,7 @@ public class vistaCategoria extends javax.swing.JFrame {
 
         jTableCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre Producto", "Precio", "Ver detalle"
@@ -103,7 +100,9 @@ public class vistaCategoria extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableCategoria.getModel();
         Object rowData[] = new Object[3];
         for(int i=0; i<prod.size(); i++){
-            //rowData[0] = prod.get
+            rowData[0] = prod.get(i).getNombreProducto();
+            rowData[1] = prod.get(i).getPrecioVenta();
+            model.addRow(rowData);
         }
     }
 
